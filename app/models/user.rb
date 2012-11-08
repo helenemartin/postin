@@ -11,7 +11,11 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
   validates :username, :uniqueness => true,:length => { :within => 4..12 }
-  
+
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+
+  def to_param
+    username
+  end
 
 end

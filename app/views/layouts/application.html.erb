@@ -25,25 +25,35 @@
 </head>
 <body>
 
-	<nav class="top-bar">
-		<ul class="left">
-			<li><a href="/" >Home</a> </li>
-			<li><%= link_to 'New Post', new_post_path %></li>
+<nav class="top-bar contain-to-grid">
+	<ul class="left">
+		<li><a href="/" >Home</a> </li>
+		<li class="toggle-topbar"><a href="#"></a></li>
+	</ul>
 
-		</ul>
+	<ul class="left">
+	<li><%= link_to 'New Post', new_post_path %></li>
+	</ul>
 
-		<ul class="right">
-			<% if user_signed_in? %>
-			<li><%= current_user.email %></li>
-			<li><%= link_to "sign out", destroy_user_session_path, :method => :delete %></li>
-			<% else %>
-			<li><%= link_to "Sign up", "/users/sign_up" %></li>
-			<li><%= link_to "Sign in", new_user_session_path %></li>
-			<% end %>
+	<section>
+		  <ul class="right">
+		    <li class="has-dropdown">
+		    	<a href="#">Account</a>
+		    		<ul class="dropdown">
 
-		</ul>
+				    	<% if user_signed_in? %>
+						<li><%= current_user.email %></li>	
+						<li><%= link_to "sign out", destroy_user_session_path, :method => :delete %></li>
+						<% else %>
+						<li><%= link_to "Sign up", "/users/sign_up" %></li>
+						<li><%= link_to "Sign in", new_user_session_path %></li>
+						<% end %>
+					</ul>
+			</li>
+		  </ul>
+	</section>	
+</nav>
 
-	</nav>
 <div class="row">
   <%= yield %>
 
