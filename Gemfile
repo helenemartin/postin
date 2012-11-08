@@ -8,6 +8,7 @@ gem 'rails', '3.2.8'
 gem 'sqlite3'
 
 gem 'devise'
+gem 'cancan'
 
 gem 'omniauth'
 gem 'oauth2'
@@ -30,6 +31,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem "paperclip", "~> 3.0"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

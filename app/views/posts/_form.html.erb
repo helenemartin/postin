@@ -12,42 +12,33 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
+    <%= f.number_field :user_id, :type => "hidden" %>
   </div>
   <div class="field">
-    <%= f.label :link %><br />
-    <%= f.text_field :link %>
+    <%= f.text_field :link, :placeholder => "http://" %>
   </div>
   <div class="field">
-    <%= f.label :thumbnail_url %><br />
-    <%= f.text_field :thumbnail_url %>
+    <%= f.text_field :thumbnail_url, :type => "hidden"  %>
   </div>
   <div class="field">
-    <%= f.label :embed_code %><br />
-    <%= f.text_area :embed_code %>
+    <%= f.text_area :embed_code, :style => "display:none;"  %>
   </div>
   <div class="field">
-    <%= f.label :media_type %><br />
-    <%= f.text_field :media_type %>
+    <%= f.text_field :media_type, :type => "hidden"  %>
   </div>
   <div class="field">
-    <%= f.label :meta_tags %><br />
-    <%= f.text_area :meta_tags %>
+    <%= f.text_area :meta_tags, :style => "display:none;"  %>
   </div>
   <div class="field">
-    <%= f.label :domain %><br />
-    <%= f.text_field :domain %>
+    <%= f.text_field :domain, :type => "hidden"  %>
   </div>
   <div class="field">
-    <%= f.label :media_provider %><br />
-    <%= f.text_field :media_provider %>
+    <%= f.text_field :media_provider, :type => "hidden"  %>
   </div>
   <div class="field">
-    <%= f.label :author %><br />
-    <%= f.text_field :author %>
+    <%= f.text_field :author, :type => "hidden"  %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Post", :class => " button" %>
   </div>
 <% end %>
