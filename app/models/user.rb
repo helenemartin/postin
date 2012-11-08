@@ -6,16 +6,15 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid, :avatar, :username
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid, :profile_attributes
 
   # attr_accessible :title, :body
 
-  validates :username, :uniqueness => true,:length => { :within => 4..12 }
-
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
 
-  def to_param
-    username
-  end
+  has_one :profile
+  
+  accepts_nested_attributes_for :profile
+
 
 end

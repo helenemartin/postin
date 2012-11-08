@@ -42,7 +42,7 @@
 		    		<ul class="dropdown">
 
 				    	<% if user_signed_in? %>
-						<li><%= current_user.email %></li>	
+						<li><%= link_to current_user.profile.username, profile_path(current_user.profile.id) %></li>	
 						<li><%= link_to "sign out", destroy_user_session_path, :method => :delete %></li>
 						<% else %>
 						<li><%= link_to "Sign up", "/users/sign_up" %></li>
