@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @post.user_id %>
+</p>
+
+<p>
+  <b>Link:</b>
+  <%= @post.link %>
+</p>
+
+<p>
+  <b>Thumbnail url:</b>
+  <%= @post.thumbnail_url %>
+</p>
+
+<p>
+  <b>Embed code:</b>
+  <%= @post.embed_code %>
+</p>
+
+<p>
+  <b>Media type:</b>
+  <%= @post.media_type %>
+</p>
+
+<p>
+  <b>Meta tags:</b>
+  <%= @post.meta_tags %>
+</p>
+
+<p>
+  <b>Domain:</b>
+  <%= @post.domain %>
+</p>
+
+<p>
+  <b>Media provider:</b>
+  <%= @post.media_provider %>
+</p>
+
+<p>
+  <b>Author:</b>
+  <%= @post.author %>
+</p>
+
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>

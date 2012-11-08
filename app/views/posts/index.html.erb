@@ -1,0 +1,39 @@
+<h1>Listing posts</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Link</th>
+    <th>Thumbnail url</th>
+    <th>Embed code</th>
+    <th>Media type</th>
+    <th>Meta tags</th>
+    <th>Domain</th>
+    <th>Media provider</th>
+    <th>Author</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @posts.each do |post| %>
+  <tr>
+    <td><%= post.user_id %></td>
+    <td><%= post.link %></td>
+    <td><%= post.thumbnail_url %></td>
+    <td><%= post.embed_code %></td>
+    <td><%= post.media_type %></td>
+    <td><%= post.meta_tags %></td>
+    <td><%= post.domain %></td>
+    <td><%= post.media_provider %></td>
+    <td><%= post.author %></td>
+    <td><%= link_to 'Show', post %></td>
+    <td><%= link_to 'Edit', edit_post_path(post) %></td>
+    <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Post', new_post_path %>

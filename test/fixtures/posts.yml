@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  link: MyString
+  thumbnail_url: MyString
+  embed_code: MyText
+  media_type: MyString
+  meta_tags: MyText
+  domain: MyString
+  media_provider: MyString
+  author: MyString
+
+two:
+  user_id: 1
+  link: MyString
+  thumbnail_url: MyString
+  embed_code: MyText
+  media_type: MyString
+  meta_tags: MyText
+  domain: MyString
+  media_provider: MyString
+  author: MyString
