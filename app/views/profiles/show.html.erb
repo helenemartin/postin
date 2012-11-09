@@ -5,3 +5,10 @@
   <%= @profile.username %>
 </p>
 
+<p>
+  <b>Avatar:</b>
+  <%= image_tag	 @profile.avatar %>
+</p>
+
+<%= link_to 'Edit', edit_profile_path(@profile) %>
+

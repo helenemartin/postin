@@ -1,5 +1,7 @@
 class AddAvatarToProfiles < ActiveRecord::Migration
-  def change
-    add_column :profiles, :avatar, :binary
+   def change
+    create_table :profiles do |t|
+      t.attachment :avatar
+    end
   end
 end

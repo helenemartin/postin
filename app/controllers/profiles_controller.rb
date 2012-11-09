@@ -22,6 +22,26 @@ class ProfilesController < ApplicationController
     end
   end
 
+  def edit
+    # @profile = current_user.profile
+    # or maybe this way, not sure how you have your relations set up
+    @profile = Profile.find(params[:id])
+  end
+
+  def update
+    @profile = Profile.find(params[:id])
+
+    respond_to do |format|
+      if @profile.update_attributes(params[:profile])
+        format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @profile.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
 
 
 end

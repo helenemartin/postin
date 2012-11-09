@@ -10,8 +10,6 @@ class User < ActiveRecord::Base
 
   # attr_accessible :title, :body
 
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
-
   has_one :profile
   
   accepts_nested_attributes_for :profile
