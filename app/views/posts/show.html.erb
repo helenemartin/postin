@@ -1,16 +1,21 @@
 <p id="notice"><%= notice %></p>
+<script type="text/javascript">
+      $('document').ready(function(){
+        $('div.content').embedly({
+          maxWidth: 450,
+          wmode: 'transparent',
+          method: 'replace',
+          key:':d71f38d2305e11e1b6634040d3dc5c07'
+        });
+      });
+</script>
 
-<p>
-  <b>User:</b>
-  <%= @post.user_id %>
-</p>
 
-<p>
-  <b>Link:</b>
-  <%= @post.link %>
-</p>
+<div class="content flex-video">
+  <%= link_to @post.link, @post.link %>
+</div>
 
-<p>
+<!-- <p>
   <b>Thumbnail url:</b>
   <%= @post.thumbnail_url %>
 </p>
@@ -43,7 +48,7 @@
 <p>
   <b>Author:</b>
   <%= @post.author %>
-</p>
+</p> -->
 
 
 <%= link_to 'Edit', edit_post_path(@post) %> |

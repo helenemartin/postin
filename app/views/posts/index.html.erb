@@ -1,37 +1,31 @@
-<h1>Listing posts</h1>
+<h1>Recent posts</h1>
 
-<table>
-  <tr>
-    <th>User</th>
-    <th>Link</th>
-    <th>Thumbnail url</th>
-    <th>Embed code</th>
-    <th>Media type</th>
-    <th>Meta tags</th>
-    <th>Domain</th>
-    <th>Media provider</th>
-    <th>Author</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<script type="text/javascript">
+      $('document').ready(function(){
+        $('div.content').embedly({
+          maxWidth: 450,
+          wmode: 'transparent',
+          method: 'replace',
+          key:':d71f38d2305e11e1b6634040d3dc5c07'
+        });
+      });
+</script>
 
-<% @posts.each do |post| %>
-  <tr>
-    <td><%= post.user_id %></td>
-    <td><%= post.link %></td>
-    <td><%= post.thumbnail_url %></td>
-    <td><%= post.embed_code %></td>
-    <td><%= post.media_type %></td>
-    <td><%= post.meta_tags %></td>
-    <td><%= post.domain %></td>
-    <td><%= post.media_provider %></td>
-    <td><%= post.author %></td>
-    <td><%= link_to 'Show', post %></td>
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
 
-<br />
+<ul class="accordion">
+    <% @posts.each do |post| %>
+  <li class="active">
+    <div class="title">
+      <h5><%= post.link %></h5>
+    </div>
+    <div class="content">
+     <%= link_to post.link, post.link %>
+    <p><%= link_to 'Show', post %>
+    <%= link_to 'Edit', edit_post_path(post) %>
+    <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+
+    </div>
+  </li>
+  <% end %>
+</ul>
+
