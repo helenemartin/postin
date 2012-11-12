@@ -36,6 +36,6 @@ Postin::Application.configure do
   config.assets.debug = true
 
   # for paperclip
-  Paperclip.options[:command_path] = "/usr/local/bin/"
+  # Paperclip.options[:command_path] = "/usr/local/bin/"
 
 end

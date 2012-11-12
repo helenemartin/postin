@@ -21,7 +21,7 @@
 
   
   <div class="field">
-  	<%= image_tag @profile.avatar %>
+  	<%= link_to image_tag(@profile.avatar), profile_path(@profile), :class => "th" %>
   	<br/>
     <%= f.file_field :avatar  %>
   </div>

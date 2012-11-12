@@ -1,8 +1,11 @@
 Postin::Application.routes.draw do
   resources :posts
   resources :profiles
+  resources :avatars
 
   devise_for :users
+
+  match ":id" => "profiles#show", as: "profile"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

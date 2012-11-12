@@ -1,10 +1,14 @@
 class ProfilesController < ApplicationController
 
+  before_filter :get_profile, only: [
+  :show, :edit, :update
+  ]
+
 	def show
     # @profile = current_user.profile
     # or maybe this way, not sure how you have your relations set up
-    @profile = Profile.find(params[:id])
-  	end
+    # @profile = Profile.find(params[:id]) #removed for before filter
+  end
 
   def new
     super
@@ -25,11 +29,11 @@ class ProfilesController < ApplicationController
   def edit
     # @profile = current_user.profile
     # or maybe this way, not sure how you have your relations set up
-    @profile = Profile.find(params[:id])
+    # @profile = Profile.find(params[:id]) #removed for before filter
   end
 
   def update
-    @profile = Profile.find(params[:id])
+    # @profile = Profile.find(params[:id]) #removed for before filter
 
     respond_to do |format|
       if @profile.update_attributes(params[:profile])
@@ -42,6 +46,9 @@ class ProfilesController < ApplicationController
     end
   end
 
+  def get_profile
+    @profile = Profile.find_by_username(params[:id])
+  end
 
 
 end

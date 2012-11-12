@@ -15,7 +15,7 @@
     <%= f.number_field :user_id, :type => "hidden" %>
   </div>
   <div class="field">
-    <%= f.label "URL", :class => "inline" %>
+    <%= f.label "Enter a URL and post it:", :class => "inline" %>
     <%= f.text_field :link, :placeholder => "http://" %>
   </div>
   <div class="field">
@@ -40,6 +40,6 @@
     <%= f.text_field :author, :type => "hidden"  %>
   </div>
   <div class="actions">
-    <%= f.submit "Post", :class => " button" %>
+    <%= f.submit "Post", :class => "large button right  " %>
   </div>
 <% end %>
