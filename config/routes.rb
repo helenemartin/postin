@@ -7,6 +7,8 @@ Postin::Application.routes.draw do
 
   match ":id" => "profiles#show", as: "profile"
 
+  match ":id" => "posts#show"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

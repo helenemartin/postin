@@ -1,5 +1,9 @@
 class PostsController < ApplicationController
 
+  before_filter :get_post, only: [
+  :show, :edit, :update, :destroy
+  ]
+
   # before_filter :authenticate_user!
 
   # GET /posts
@@ -16,7 +20,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-    @post = Post.find(params[:id])
+    # @post = Post.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -37,7 +41,7 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
-    @post = Post.find(params[:id])
+    # @post = Post.find(params[:id])
   end
 
   # POST /posts
@@ -59,7 +63,7 @@ class PostsController < ApplicationController
   # PUT /posts/1
   # PUT /posts/1.json
   def update
-    @post = Post.find(params[:id])
+    # @post = Post.find(params[:id])
 
     respond_to do |format|
       if @post.update_attributes(params[:post])
@@ -75,7 +79,7 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
-    @post = Post.find(params[:id])
+    # @post = Post.find(params[:id])
     @post.destroy
 
     respond_to do |format|
@@ -83,4 +87,10 @@ class PostsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
+def get_post
+    @post = Post.find_by_url(params[:id])
+end
+
 end

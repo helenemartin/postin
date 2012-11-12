@@ -46,6 +46,8 @@ class ProfilesController < ApplicationController
     end
   end
 
+  private
+
   def get_profile
     @profile = Profile.find_by_username(params[:id])
   end
