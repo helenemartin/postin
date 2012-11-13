@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
 
   has_one :profile
   has_many :posts
+  has_one :username, :through => :profile
   
   accepts_nested_attributes_for :profile
 
