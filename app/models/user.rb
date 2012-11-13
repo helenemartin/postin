@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
   has_one :profile
+  has_many :posts
   
   accepts_nested_attributes_for :profile
 

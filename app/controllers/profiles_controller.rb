@@ -4,6 +4,11 @@ class ProfilesController < ApplicationController
   :show, :edit, :update
   ]
 
+  def posts
+    
+    
+  end
+
 	def show
     # @profile = current_user.profile
     # or maybe this way, not sure how you have your relations set up

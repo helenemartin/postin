@@ -1,10 +1,11 @@
 class Profile < ActiveRecord::Base
-  attr_accessible :username, :avatar
+  attr_accessible :username, :avatar, :user_id
 
   validates :username, :uniqueness => true
   # validates :avatar, :attachment_presence => true	
 
-  belongs_to :user
+  belongs_to :user, dependent: :destroy
+  has_many :posts
 
   has_attached_file :avatar,  
                   :url  => "/assets/profiles/:id/:style/:basename.:extension",

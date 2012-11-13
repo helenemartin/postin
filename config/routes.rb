@@ -1,6 +1,11 @@
 Postin::Application.routes.draw do
   resources :posts
-  resources :profiles
+
+  resources :profiles do
+    member do get 'posts'
+    end
+  end
+
   resources :avatars
 
   devise_for :users
