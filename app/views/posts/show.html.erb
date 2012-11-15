@@ -1,14 +1,5 @@
 <p id="notice"><%= notice %></p>
-<script type="text/javascript">
-      $('document').ready(function(){
-        $('div.content').embedly({
-          maxWidth: 450,
-          wmode: 'transparent',
-          method: 'replace',
-          key:':d71f38d2305e11e1b6634040d3dc5c07'
-        });
-      });
-</script>
+
 
 
 <div class="content flex-video">
@@ -17,6 +8,8 @@
 
 
 </div>
+
+<p>via <%= link_to @post.user.username, profile_path(@post.user.username) %></p>
 
 <!-- <p>
   <b>Thumbnail url:</b>

@@ -1,13 +1,9 @@
-class ProfilesController < ApplicationController
+class UsersController < ApplicationController
 
-  before_filter :get_profile, only: [
+  before_filter :get_user, only: [
   :show, :edit, :update
   ]
 
-  def posts
-    
-    
-  end
 
 	def show
     # @profile = current_user.profile
@@ -16,14 +12,12 @@ class ProfilesController < ApplicationController
   end
 
   def new
-    super
-    @user.profile = Profile.new
+    @user = User.new
   end
 
   def create
-    super
-    @profile = @user.profiles.build(params[:profile])
-      if @profile.save
+    @user = User.new(params[:user])
+      if @user.save
       flash[:notice] = "Profile written"
       redirect_to :action => 'index'
     else
@@ -32,7 +26,7 @@ class ProfilesController < ApplicationController
   end
 
   def edit
-    # @profile = current_user.profile
+    # @user = current_user
     # or maybe this way, not sure how you have your relations set up
     # @profile = Profile.find(params[:id]) #removed for before filter
   end
@@ -41,20 +35,20 @@ class ProfilesController < ApplicationController
     # @profile = Profile.find(params[:id]) #removed for before filter
 
     respond_to do |format|
-      if @profile.update_attributes(params[:profile])
-        format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }
+      if @user.update_attributes(params[:user])
+        format.html { redirect_to @user, notice: 'Profile was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
-        format.json { render json: @profile.errors, status: :unprocessable_entity }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end
 
   private
 
-  def get_profile
-    @profile = Profile.find_by_username(params[:id])
+  def get_user
+    @user = User.find_by_username!(params[:id])
   end
 
 

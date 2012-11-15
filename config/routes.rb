@@ -1,17 +1,18 @@
 Postin::Application.routes.draw do
   resources :posts
-
-  resources :profiles do
-    member do get 'posts'
+  devise_for :users
+  
+  resources :users do
+    member do 
+      get 'posts'
     end
   end
 
   resources :avatars
 
-  devise_for :users
+  
 
-  match ":id" => "profiles#show", as: "profile"
-
+  match ":id" => "users#show", as: "profile"
   match ":id" => "posts#show"
 
   # The priority is based upon order of creation:

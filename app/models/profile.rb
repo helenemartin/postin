@@ -4,7 +4,7 @@ class Profile < ActiveRecord::Base
   validates :username, :uniqueness => true
   validates :avatar, :attachment_presence => true	
 
-  belongs_to :user
+  
   has_many :posts
 
   has_attached_file :avatar,  

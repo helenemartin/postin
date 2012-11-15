@@ -3,7 +3,6 @@ class Post < ActiveRecord::Base
    :meta_tags, :thumbnail_url, :user_id, :profile_attributes, :url, :title
 
 belongs_to :user
-belongs_to :profile
 
 acts_as_url :title
 

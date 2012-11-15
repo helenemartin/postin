@@ -1,14 +1,7 @@
   <h1>Recent posts</h1>
 
 <script type="text/javascript">
-      $('document').ready(function(){
-        $('div.content').embedly({
-          maxWidth: 450,
-          wmode: 'transparent',
-          method: 'replace',
-          key:':d71f38d2305e11e1b6634040d3dc5c07'
-        });
-      });
+ 
 </script>
 
 
@@ -20,12 +13,16 @@
     </div>
     <div class="content">
      <%= link_to post.title, post.link %>
-    <p><%= link_to 'Show', post %>
-    <%= link_to 'Edit', edit_post_path(post) %>
+    <p><%= link_to 'Title of Link', post %></p>
+
+    <p>via <%= post.user_id %></p>  
+
+    <p><%= link_to 'Edit', edit_post_path(post) %>
     <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></p>
 
     </div>
   </li>
   <% end %>
+    
 </ul>
 

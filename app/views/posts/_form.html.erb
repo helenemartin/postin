@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.number_field :user_id, :type => "hidden" %>
+    <%= f.number_field :user_id, :type => "hidden", :value => current_user.id %>
   </div>
   <div class="field">
     <%= f.label "Enter a URL and post it:", :class => "inline" %>

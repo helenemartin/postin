@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<script type="text/javascript">
+      $('document').ready(function(){
+        $('div.content').embedly({
+          maxWidth: 450,
+          wmode: 'transparent',
+          method: 'replace',
+          key:':d71f38d2305e11e1b6634040d3dc5c07'
+        });
+      });
+</script>
+
+<p>
+  <b>User:</b>
+  <%= @user.username %>
+</p>
+
+<p>
+  <b>Avatar:</b>
+  <%= image_tag	 @user.avatar %>
+</p>
+
+<p>
+	<b>Posts</b>
+	<% @user.posts.each do |post| %>
+	<div class="content">
+		<%= link_to post.link, post.link %>
+	</div>
+	<% end %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_user_path(@user) %>
+
