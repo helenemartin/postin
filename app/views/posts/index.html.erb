@@ -1,28 +1,28 @@
-  <h1>Recent posts</h1>
-
-<script type="text/javascript">
- 
-</script>
+<h1>Recent posts</h1>
 
 
-<ul class="accordion">
-    <% @posts.each do |post| %>
-  <li class="active">
-    <div class="title">
-      <h5><%= post.title %></h5>
+
+  <% @posts.each do |post| %>
+    <div class="row">
+      <div class="12 columns">
+        <h3><%= link_to 'View Post', post %> <small>via <%= post.user_id %></small></h3>
+      </div>
     </div>
-    <div class="content">
-     <%= link_to post.title, post.link %>
-    <p><%= link_to 'Title of Link', post %></p>
 
-    <p>via <%= post.user_id %></p>  
+    <div class="row">
 
-    <p><%= link_to 'Edit', edit_post_path(post) %>
-    <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+      <div class="panel six columns push-six ">
+        Content info.
+      </div>
+
+      <div class="content six columns pull-six">
+       <%= link_to post.title, post.link %>
+      </div>
+      
 
     </div>
-  </li>
+    <hr>
   <% end %>
-    
-</ul>
 
+  <%= paginate @posts %>
+  

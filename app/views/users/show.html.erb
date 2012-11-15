@@ -1,36 +1,50 @@
 <p id="notice"><%= notice %></p>
 
-<script type="text/javascript">
-      $('document').ready(function(){
-        $('div.content').embedly({
-          maxWidth: 450,
-          wmode: 'transparent',
-          method: 'replace',
-          key:':d71f38d2305e11e1b6634040d3dc5c07'
-        });
-      });
-</script>
 
-<p>
-  <b>User:</b>
-  <%= @user.username %>
-</p>
-
-<p>
-  <b>Avatar:</b>
-  <%= image_tag	 @user.avatar %>
-</p>
-
-<p>
-	<b>Posts</b>
-	<% @user.posts.each do |post| %>
-	<div class="content">
-		<%= link_to post.link, post.link %>
+<div class="row">
+	<div class="nine columns push-three">
+			<h1><%= @user.name %> 
+			<% if current_user %>
+			<% if current_user.id == @user.id %>
+				<small><%= link_to 'Edit Profile', edit_user_path(@user.username) %></small></h1>
+				<% end %>
+			<% end %>
+			<p class="panel"><%= @user.bio %></p>
 	</div>
-	<% end %>
-</p>
+	
+
+	<div class="three columns pull-nine th" >
+  		<%= image_tag @user.avatar %>
+	</div>
+		
+	
+</div>
+
+<div class="row">
+	<div class="12 columns">
+		<h2>Posts</h2>
+		<% @user.posts.each do |post| %>
 
 
+	<h3><%= link_to 'View Post', post %> <small>via <%= post.user_id %></small></h3>
+      </div>
+    </div>
 
-<%= link_to 'Edit', edit_user_path(@user) %>
+    <div class="row">
+
+      <div class="panel six columns push-six ">
+        Content info.
+      </div>
+
+      <div class="content six columns pull-six">
+       <%= link_to post.title, post.link %>
+      </div>
+      
+
+    </div>
+    <hr>
+		<% end %>
+	</div>
+</div>
+
 

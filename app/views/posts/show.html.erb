@@ -4,8 +4,7 @@
 
 <div class="content flex-video">
 
-  <%= link_to @post.link, @post.link %>
-
+<%= link_to @post.link, @post.link %>
 
 </div>
 
@@ -46,6 +45,10 @@
   <%= @post.author %>
 </p> -->
 
-
-<%= link_to 'Edit', edit_post_path(@post.url) %> |
+<% if current_user %>
+  <% if current_user.id == @post.user_id %>
+      <%= link_to 'Edit', edit_post_path(@post.url) %> |
+      <%# link_to 'Destroy', delete_post_path(@post.url), method: :delete, data: { confirm: 'Are you sure?' } %> 
+  <% end %>
+<% end %>
 <%= link_to 'Back', posts_path %>

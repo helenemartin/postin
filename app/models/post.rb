@@ -4,7 +4,12 @@ class Post < ActiveRecord::Base
 
 belongs_to :user
 
+paginates_per 3
+default_scope order("created_at DESC")  
+
 acts_as_url :title
+
+
 
 def to_param
     if url.present?

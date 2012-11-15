@@ -1,16 +1,23 @@
 Postin::Application.routes.draw do
-  resources :posts
+  get "accounts/edit"
+
+  get "accounts/update"
+
   devise_for :users
-  
+  resources :posts do 
+    member do 
+      get 'users'
+    end
+  end
+
   resources :users do
     member do 
       get 'posts'
     end
   end
 
+  resource :account, only: [:edit, :update]
   resources :avatars
-
-  
 
   match ":id" => "users#show", as: "profile"
   match ":id" => "posts#show"

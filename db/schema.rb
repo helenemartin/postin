@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121113110138) do
+ActiveRecord::Schema.define(:version => 20121115113255) do
 
   create_table "posts", :force => true do |t|
     t.integer  "user_id"
@@ -62,6 +62,8 @@ ActiveRecord::Schema.define(:version => 20121113110138) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.string   "username"
+    t.string   "name"
+    t.text     "bio"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

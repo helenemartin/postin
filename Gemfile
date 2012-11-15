@@ -5,18 +5,19 @@ gem 'rails', '3.2.8'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'pg'
+gem 'pg' #db for heroku
 
 group :development, :test do
   gem 'sqlite3'
 end
 
-gem 'devise'
-gem 'cancan'
+gem 'devise' #user system
+gem 'cancan' #user permissions
+gem 'simple_form' # good forms
 
-gem 'omniauth'
-gem 'oauth2'
-gem 'omniauth-facebook'
+gem 'omniauth' #oauth login
+gem 'oauth2' #
+gem 'omniauth-facebook' #facebook connect
 
 
 # Gems used only for assets and not required
@@ -25,8 +26,8 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   
-  gem 'compass-rails'
-   gem 'zurb-foundation'
+  gem 'compass-rails' #sass compiler
+   gem 'zurb-foundation' #front end framework
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
@@ -35,10 +36,11 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem "paperclip", "~> 3.3.0"
+gem "paperclip", "~> 3.3.0" #image uploads
 
-# gem 'rmagick'	
-gem 'stringex'
+# gem 'rmagick'	#image res-zing
+gem 'stringex' #clean urls
+gem 'kaminari' #pagination
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -1,9 +1,4 @@
-<h1>Editing user</h1>
-
-<p>
-  <b>User:</b>
-  <%= @user.username %>
-</p>
+<h1>Editing <%= @user.username %> <small><%= link_to 'View profile', user_path(@user) %></small></h1>
 
 
 <%= form_for(@user, url: user_path) do |f| %>
@@ -19,11 +14,20 @@
     </div>
   <% end %>
 
+  <div class="field">
+        <%= f.text_field :name, :placeholder => "Enter your Name"  %>
+  </div>
   
   <div class="field">
-  	<%= link_to image_tag(@user.avatar), user_path(@user), :class => "th" %>
-  	<br/>
+    <span class="th">
+  	<%= image_tag(@user.avatar) %>
+  	 </span>
+     <br/>
     <%= f.file_field :avatar  %>
+  </div>
+
+  <div class="field">
+    <%= f.text_area :bio, :placeholder => "Tell us more about you"  %>
   </div>
   
   <div class="actions">
