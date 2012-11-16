@@ -1,6 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-
 <div class="row">
 	<div class="nine columns push-three">
 			<h1><%= @user.name %> 
@@ -9,7 +8,10 @@
 				<small><%= link_to 'Edit Profile', edit_user_path(@user.username) %></small></h1>
 				<% end %>
 			<% end %>
-			<p class="panel"><%= @user.bio %></p>
+			<p class="panel"><%= @user.bio %>
+
+				<%= link_to "Add Friend", friendships_path(:friend_id => @user.id), :method => :post %>
+			</p>
 	</div>
 	
 
@@ -20,11 +22,18 @@
 	
 </div>
 
+<h2>Following</h2>
+<ul>
+	<%= @user.friendships.each do |friendship| %>
+		<li><%= user.name %></li>
+	<% end %>
+
+</ul>
+
 <div class="row">
 	<div class="12 columns">
 		<h2>Posts</h2>
 		<% @user.posts.each do |post| %>
-
 
 	<h3><%= link_to 'View Post', post %> <small>via <%= post.user_id %></small></h3>
       </div>

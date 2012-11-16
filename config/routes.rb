@@ -1,9 +1,9 @@
 Postin::Application.routes.draw do
-  get "accounts/edit"
 
-  get "accounts/update"
+  resources :friendships
 
   devise_for :users
+
   resources :posts do 
     member do 
       get 'users'
@@ -16,11 +16,14 @@ Postin::Application.routes.draw do
     end
   end
 
+  resources :post_steps
   resource :account, only: [:edit, :update]
   resources :avatars
 
   match ":id" => "users#show", as: "profile"
   match ":id" => "posts#show"
+
+  resources :comments, :path_prefix => '/:commentable_type/:commentable_id'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

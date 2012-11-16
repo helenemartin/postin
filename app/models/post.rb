@@ -4,6 +4,8 @@ class Post < ActiveRecord::Base
 
 belongs_to :user
 
+acts_as_commentable
+
 paginates_per 3
 default_scope order("created_at DESC")  
 

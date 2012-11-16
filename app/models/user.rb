@@ -1,4 +1,10 @@
 class User < ActiveRecord::Base
+  has_many :friendships
+  has_many :friends, :through => :friendships
+  has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
+  has_many :inverse_friends, :through => :inverse_friendships, :source => :user
+
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -16,8 +22,8 @@ class User < ActiveRecord::Base
 
   has_attached_file :avatar,  
                   :url  => "/assets/profiles/:id/:style/:basename.:extension",
-                  :path => ":rails_root/public/assets/profiles/:id/:style/:basename.:extension"
-                  # :styles => { :medium => "300x300>", :thumb => "100x100>" }
+                  :path => ":rails_root/public/assets/profiles/:id/:style/:basename.:extension",
+                  :styles => { :medium => "300x300>", :thumb => "100x100>" }
 
   def to_param
     username

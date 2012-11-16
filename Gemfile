@@ -37,10 +37,13 @@ end
 
 gem 'jquery-rails'
 gem "paperclip", "~> 3.3.0" #image uploads
-
 # gem 'rmagick'	#image res-zing
+
 gem 'stringex' #clean urls
 gem 'kaminari' #pagination
+
+gem 'acts_as_commentable', '3.0.1'
+gem 'wicked'  #steps post form
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

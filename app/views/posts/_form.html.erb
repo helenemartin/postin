@@ -18,27 +18,6 @@
     <%= f.label "Enter a URL and post it:", :class => "inline" %>
     <%= f.text_field :link, :placeholder => "http://" %>
   </div>
-  <div class="field">
-    <%= f.text_field :thumbnail_url, :type => "hidden"  %>
-  </div>
-  <div class="field">
-    <%= f.text_area :embed_code, :style => "display:none;"  %>
-  </div>
-  <div class="field">
-    <%= f.text_field :media_type, :type => "hidden"  %>
-  </div>
-  <div class="field">
-    <%= f.text_area :meta_tags, :style => "display:none;"  %>
-  </div>
-  <div class="field">
-    <%= f.text_field :domain, :type => "hidden"  %>
-  </div>
-  <div class="field">
-    <%= f.text_field :media_provider, :type => "hidden"  %>
-  </div>
-  <div class="field">
-    <%= f.text_field :author, :type => "hidden"  %>
-  </div>
   <div class="actions">
     <%= f.submit "Post", :class => "large button right  " %>
   </div>
