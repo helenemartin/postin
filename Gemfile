@@ -16,8 +16,8 @@ gem 'cancan' #user permissions
 gem 'simple_form' # good forms
 
 gem 'omniauth' #oauth login
-gem 'oauth2' #
 gem 'omniauth-facebook' #facebook connect
+gem 'omniauth-twitter' #twitter connect
 
 
 # Gems used only for assets and not required

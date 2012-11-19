@@ -1,9 +1,7 @@
 Postin::Application.routes.draw do
-  get "accounts/edit"
 
-  get "accounts/update"
 
-  devise_for :users
+  devise_for :users#, controllers: { sessions: 'devise/sessions' } 
   resources :posts do 
     member do 
       get 'users'
@@ -21,6 +19,9 @@ Postin::Application.routes.draw do
 
   match ":id" => "users#show", as: "profile"
   match ":id" => "posts#show"
+
+  devise_scope :user do 
+  end   
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -77,5 +78,5 @@ Postin::Application.routes.draw do
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-  match ':controller(/:action(/:id))(.:format)'
+  # match ':controller(/:action(/:id))(.:format)'
 end

@@ -45,6 +45,27 @@ class UsersController < ApplicationController
     end
   end
 
+  def facebook_login
+    omniauth = request.env['omniauth.auth']
+
+    logger.info omniauth
+    
+    if User.find_by_facebook_uid(omniauth[:uid])
+      redirect_to root_path
+    else
+      @user = User.new
+      @user.email = omniauth[:info][:email]
+      @user.username = omniauth[:info][:nickname]
+      @user.name = omniauth[:info][:name]
+      @user.facebook_uid = omniauth[:uid]
+      @user.save
+    end
+
+    session[:user_id] = @user.id
+    redirect_to root path
+
+  end
+
   private
 
   def get_user
