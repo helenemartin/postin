@@ -42,6 +42,9 @@ gem "paperclip", "~> 3.3.0" #image uploads
 gem 'stringex' #clean urls
 gem 'kaminari' #pagination
 
+gem 'embedly'
+gem 'querystring'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

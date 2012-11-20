@@ -9,7 +9,7 @@ default_scope order("created_at DESC")
 
 acts_as_url :title
 
-
+require 'embedly'
 
 def to_param
     if url.present?
@@ -18,5 +18,22 @@ def to_param
       id
     end
 end 
+
+before_update :get_embedly
+
+def get_embedly
+	embedly_api = Embedly::API.new :key => 'd71f38d2305e11e1b6634040d3dc5c07', :user_agent => 'Mozilla/5.0 (compatible; mytestapp/1.0; my@email.com)'
+	obj = embedly_api.oembed url: link
+	logger.info obj
+	self.thumbnail_url = obj[0].thumbnail_url
+	self.title = obj[0].title
+	self.embed_code = obj[0].html
+	self.media_provider = obj[0].provider_name
+	self.media_type = obj[0].rich
+	# self.meta_tags = obj[0].title
+	# self.description = obj[0].description - requires a migration
+
+end
+
 
 end
