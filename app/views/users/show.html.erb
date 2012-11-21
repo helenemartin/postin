@@ -11,40 +11,45 @@
 			<% end %>
 			<p class="panel"><%= @user.bio %></p>
 	</div>
-	
-
 	<div class="three columns pull-nine th" >
   		<%= image_tag @user.avatar %>
 	</div>
-		
+</div>
+<hr/>
+
+
+<dl class="tabs">
+  <dd class="active"><a href="#simple1">Posts</a></dd>
+  <dd><a href="#simple2">Favorites</a></dd>
+</dl>
+
+<ul class="tabs-content">
+  <li class="active" id="simple1Tab">
+  	
+	<% @user.posts.each do |post| %>
+			<header>
+			<h3><%= link_to post.title, post %> <small>via <%= post.user_id %></small></h3>
+			</header>
+
+			<div class="content left six columns">					
+				<%= link_to post.title, post.link %>
+			</div>
+
+		    <section class="panel six columns right">
+		        Content info.
+		    </section>
+		    <hr>
+	<% end %>
 	
-</div>
-
-<div class="row">
-	<div class="12 columns">
-		<h2>Posts</h2>
-		<% @user.posts.each do |post| %>
+  </li>
+  <li id="simple2Tab">
+  	Favorites in here
 
 
-	<h3><%= link_to 'View Post', post %> <small>via <%= post.user_id %></small></h3>
-      </div>
-    </div>
 
-    <div class="row">
+  </li>
+</ul>
 
-      <div class="panel six columns push-six ">
-        Content info.
-      </div>
 
-      <div class="content six columns pull-six">
-       <%= link_to post.title, post.link %>
-      </div>
-      
-
-    </div>
-    <hr>
-		<% end %>
-	</div>
-</div>
 
 

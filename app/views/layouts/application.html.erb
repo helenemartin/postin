@@ -47,8 +47,8 @@
 						<% else %>
 						<li><%= link_to "Sign up", "/users/sign_up" %></li>
 						<li><%= link_to "Sign in", new_user_session_path %></li>
-						<li><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></li>
-						<li><%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %></li>
+						<li><%# link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></li>
+						<li><%# link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %></li>
 
 						<% end %>
 					</ul>
@@ -60,6 +60,10 @@
 <div class="row">
   <%= yield %>
 
+<footer class="row panel">
+	<section class="">Footer me up</section>
+</footer>			
 </div>
+
 </body>
 </html>

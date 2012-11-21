@@ -1,3 +1,13 @@
+GIT
+  remote: https://github.com/plataformatec/devise.git
+  revision: 3696cbf33e65d7dd276c32e81bbcc400d78a44ba
+  specs:
+    devise (2.1.2)
+      bcrypt-ruby (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (~> 3.1)
+      warden (~> 1.2.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -47,11 +57,6 @@ GEM
       sass (~> 3.1)
     compass-rails (1.0.3)
       compass (>= 0.12.2, < 0.14)
-    devise (2.1.2)
-      bcrypt-ruby (~> 3.0)
-      orm_adapter (~> 0.1)
-      railties (~> 3.1)
-      warden (~> 1.2.1)
     embedly (1.5.6)
       json
       oauth
@@ -147,6 +152,7 @@ GEM
     rake (10.0.2)
     rdoc (3.12)
       json (~> 1.4)
+    ruby-oembed (0.8.8)
     sass (3.2.3)
     sass-rails (3.2.5)
       railties (~> 3.2.0)
@@ -189,7 +195,7 @@ DEPENDENCIES
   cancan
   coffee-rails (~> 3.2.1)
   compass-rails
-  devise
+  devise!
   embedly
   jquery-rails
   kaminari
@@ -200,6 +206,7 @@ DEPENDENCIES
   pg
   querystring
   rails (= 3.2.8)
+  ruby-oembed
   sass-rails (~> 3.2.3)
   simple_form
   sqlite3

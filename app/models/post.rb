@@ -3,13 +3,13 @@ class Post < ActiveRecord::Base
    :meta_tags, :thumbnail_url, :user_id, :profile_attributes, :url, :title
 
 belongs_to :user
+has_many :favourites
 
 paginates_per 3
 default_scope order("created_at DESC")  
 
+before_validation :get_embedly
 acts_as_url :title
-
-require 'embedly'
 
 def to_param
     if url.present?
@@ -19,11 +19,13 @@ def to_param
     end
 end 
 
-before_update :get_embedly
+
+require 'embedly'
+require 'json'
 
 def get_embedly
 	embedly_api = Embedly::API.new :key => 'd71f38d2305e11e1b6634040d3dc5c07', :user_agent => 'Mozilla/5.0 (compatible; mytestapp/1.0; my@email.com)'
-	obj = embedly_api.oembed url: link
+	obj = embedly_api.oembed url: self.link
 	logger.info obj
 	self.thumbnail_url = obj[0].thumbnail_url
 	self.title = obj[0].title

@@ -15,10 +15,10 @@ Devise.setup do |config|
   # available as additional gems.
   require 'devise/orm/active_record'
 
-  require "omniauth-facebook"
-  require "omniauth-twitter"
-  config.omniauth :facebook, "173725879432755", "2282a2412deb2682b04fdaca9ca1518f"
-  config.omniauth :twitter, "yfJyINucym6UFFjpI7lbA", "QBr7n2q87PyzXbUUE0gpSshNTSYOSwzoSwuHKO1s"
+  # require "omniauth-facebook"
+  # require "omniauth-twitter"
+  # config.omniauth :facebook, "173725879432755", "2282a2412deb2682b04fdaca9ca1518f"
+  # config.omniauth :twitter, "nwDnBhFx8CDLAyiUcrToA", "e8oGLuuOVG6K3pkr2zJdtNP6F3UwBM2giJaVlX5AHI"
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
@@ -28,8 +28,8 @@ Devise.setup do |config|
   # session. If you need permissions, you should implement that in a before filter.
   # You can also supply a hash where the value is a boolean determining whether
   # or not authentication should be aborted when the value is not present.
-  # config.authentication_keys = [ :email ]
-  config.authentication_keys = [:username]
+  config.authentication_keys = [ :email ]
+  # config.authentication_keys = [:username]
 
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the

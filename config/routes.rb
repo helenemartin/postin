@@ -1,7 +1,7 @@
 Postin::Application.routes.draw do
 
 
-  devise_for :users#, controllers: { sessions: 'devise/sessions' } 
+  devise_for :users#, controllers: { omniauth_callbacks: "omniauth_callbacks" } 
   resources :posts do 
     member do 
       get 'users'
@@ -14,14 +14,16 @@ Postin::Application.routes.draw do
     end
   end
 
+  resources :favourites, :only => [:index, :create, :destroy]
+
   resource :account, only: [:edit, :update]
   resources :avatars
 
   match ":id" => "users#show", as: "profile"
   match ":id" => "posts#show"
 
-  devise_scope :user do 
-  end   
+  #devise_scope :user do 
+  #end   
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

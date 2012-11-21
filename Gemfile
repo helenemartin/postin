@@ -11,7 +11,7 @@ group :development, :test do
   gem 'sqlite3'
 end
 
-gem 'devise' #user system
+gem 'devise', git: "https://github.com/plataformatec/devise.git" #user system
 gem 'cancan' #user permissions
 gem 'simple_form' # good forms
 
@@ -44,6 +44,8 @@ gem 'kaminari' #pagination
 
 gem 'embedly'
 gem 'querystring'
+
+gem 'ruby-oembed'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

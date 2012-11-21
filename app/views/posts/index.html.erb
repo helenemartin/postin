@@ -16,11 +16,15 @@
       <div class="content six columns pull-six">
        <%= link_to post.title, post.link %>
       </div>
+
+      <%= link_to "Add to favorites", favourites_path(post_id: post.id), {:method => :post } if user_signed_in? %>
       
 
     </div>
-    <hr>
-  <% end %>
-
-  <%= paginate @posts %>
   
+  <% end %>
+  <hr>
+
+    <%= paginate @posts %>
+
+    <hr>
