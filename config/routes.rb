@@ -1,9 +1,8 @@
 Postin::Application.routes.draw do
 
-  resources :friendships
 
-  devise_for :users
 
+  devise_for :users#, controllers: { omniauth_callbacks: "omniauth_callbacks" } 
   resources :posts do 
     member do 
       get 'users'
@@ -16,14 +15,23 @@ Postin::Application.routes.draw do
     end
   end
 
-  resources :post_steps
+
+  resources :favourites, :only => [:index, :create, :destroy] do
+    member do
+      get 'posts'
+    end
+  end
+
   resource :account, only: [:edit, :update]
   resources :avatars
 
   match ":id" => "users#show", as: "profile"
   match ":id" => "posts#show"
 
-  resources :comments, :path_prefix => '/:commentable_type/:commentable_id'
+
+  #devise_scope :user do 
+  #end   
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -80,5 +88,5 @@ Postin::Application.routes.draw do
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-  match ':controller(/:action(/:id))(.:format)'
+  # match ':controller(/:action(/:id))(.:format)'
 end

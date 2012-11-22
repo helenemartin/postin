@@ -26,7 +26,10 @@
 </head>
 <body>
 
-<nav class="top-bar contain-to-grid fixed">
+
+
+<nav class="top-bar contain-to-grid">
+
 	<ul class="left">
 		<li><a href="/" >Home</a> </li>
 		<li class="toggle-topbar"><a href="#"></a></li>
@@ -47,16 +50,28 @@
 						<% else %>
 						<li><%= link_to "Sign up", "/users/sign_up" %></li>
 						<li><%= link_to "Sign in", new_user_session_path %></li>
+						<li><%# link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></li>
+						<li><%# link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %></li>
+
 						<% end %>
 					</ul>
 			</li>
 		  </ul>
 	</section>	
 </nav>
+<div id="wrap">
+	<div id="main">
+		<div id="content">
 
-<div class="row">
   <%= yield %>
 
+		</div>
+	</div>
 </div>
+
+<footer id="footer" class="panel">
+	<section class="">Footer info.</section>
+</footer>	
+
 </body>
 </html>
