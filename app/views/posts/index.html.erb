@@ -1,3 +1,4 @@
+<div class="row">
 <h1>Recent posts</h1>
 
   <% @posts.each do |post| %>
@@ -21,10 +22,12 @@
       
 
     </div>
+    <hr>
   
   <% end %>
-  <hr>
+  
 
     <%= paginate @posts %>
 
-    <hr>
+  <hr>
+</div>

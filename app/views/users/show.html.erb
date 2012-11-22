@@ -6,38 +6,38 @@
 		      $("#myModal").reveal();
 		    });
 		  });
-		</script>
+	</script>
 
-	<div class="row">
-		<div class="nine columns push-three">
-				<h1><%= @user.name %> 
-				<% if current_user %>
-				<% if current_user.id == @user.id %>
-					<small><%= link_to 'Edit Profile', edit_user_path(@user.username), :class => "button tiny secondary" %></small></h1>
-					<% end %>
+<div class="row">
+	<div class="nine columns push-three">
+			<h1><%= @user.name %> 
+			<% if current_user %>
+			<% if current_user.id == @user.id %>
+				<small><%= link_to 'Edit Profile', edit_user_path(@user.username), :class => "button tiny secondary" %></small></h1>
 				<% end %>
-				<p class="panel"><%= @user.bio %></p>
-				<a href="#" class="button " data-reveal-id="showReel">View Show Reel</a>
-		</div>
-		<div class="three columns pull-nine th" >
-	  		<%=	image_tag @user.avatar %>
-		</div>
-
-		
-
-		<div id="showReel" class="reveal-modal expand">
-		  <h2>My Amazign Show Reel</h2>
-		  <div class="content flex-video">
-		  	<%= link_to @user.posts.first.title, @user.posts.first.link %>
-		  </div>
-		  <a class="close-reveal-modal">&#215;</a>
-		</div>
+			<% end %>
+			<p class="panel"><%= @user.bio %></p>
+			<a href="#" class="button " data-reveal-id="showReel">View Show Reel</a>
+	</div>
+	<div class="three columns pull-nine th" >
+  		<%=	image_tag @user.avatar %>
+	</div>
 
 	
 
+	<div id="showReel" class="reveal-modal expand">
+	  <h2>My Amazign Show Reel</h2>
+	  <div class="content flex-video">
+	  	<%= link_to @user.posts.first.title, @user.posts.first.link %>
+	  </div>
+	  <a class="close-reveal-modal">&#215;</a>
 	</div>
-	<hr/>
 
+
+<hr/>
+</div>
+	
+<div class="row">
 
 	<dl class="tabs">
 	  <dd class="active"><a href="#simple1">Posts</a></dd>
@@ -86,7 +86,7 @@
 		<% end %>
 	  </li>
 	</ul>
-
+</div>
 
 
 
