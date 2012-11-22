@@ -26,6 +26,7 @@
 </head>
 <body>
 
+
 <nav class="top-bar contain-to-grid">
 	<ul class="left">
 		<li><a href="/" >Home</a> </li>
@@ -56,14 +57,19 @@
 		  </ul>
 	</section>	
 </nav>
+<div id="wrap">
+	<div id="main">
+		<div id="content">
 
-<div class="row">
   <%= yield %>
 
-<footer class="row panel">
-	<section class="">Footer me up</section>
-</footer>			
+		</div>
+	</div>
 </div>
+
+<footer id="footer" class="panel">
+	<section class="">Footer info.</section>
+</footer>	
 
 </body>
 </html>

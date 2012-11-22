@@ -1,54 +1,91 @@
-<p id="notice"><%= notice %></p>
+	<p id="notice"><%= notice %></p>
 
+	<script type="text/javascript">
+		  $(document).ready(function() {
+		    $("#buttonForModal").click(function() {
+		      $("#myModal").reveal();
+		    });
+		  });
+		</script>
 
-<div class="row">
-	<div class="nine columns push-three">
-			<h1><%= @user.name %> 
-			<% if current_user %>
-			<% if current_user.id == @user.id %>
-				<small><%= link_to 'Edit Profile', edit_user_path(@user.username) %></small></h1>
+	<div class="row">
+		<div class="nine columns push-three">
+				<h1><%= @user.name %> 
+				<% if current_user %>
+				<% if current_user.id == @user.id %>
+					<small><%= link_to 'Edit Profile', edit_user_path(@user.username), :class => "button tiny secondary" %></small></h1>
+					<% end %>
 				<% end %>
-			<% end %>
-			<p class="panel"><%= @user.bio %></p>
+				<p class="panel"><%= @user.bio %></p>
+				<a href="#" class="button " data-reveal-id="showReel">View Show Reel</a>
+		</div>
+		<div class="three columns pull-nine th" >
+	  		<%=	image_tag @user.avatar %>
+		</div>
+
+		
+
+		<div id="showReel" class="reveal-modal expand">
+		  <h2>My Amazign Show Reel</h2>
+		  <div class="content flex-video">
+		  	<%= link_to @user.posts.first.title, @user.posts.first.link %>
+		  </div>
+		  <a class="close-reveal-modal">&#215;</a>
+		</div>
+
+	
+
 	</div>
-	<div class="three columns pull-nine th" >
-  		<%= image_tag @user.avatar %>
-	</div>
-</div>
-<hr/>
+	<hr/>
 
 
-<dl class="tabs">
-  <dd class="active"><a href="#simple1">Posts</a></dd>
-  <dd><a href="#simple2">Favorites</a></dd>
-</dl>
+	<dl class="tabs">
+	  <dd class="active"><a href="#simple1">Posts</a></dd>
+	  <dd><a href="#simple2">Favorites</a></dd>
+	</dl>
 
-<ul class="tabs-content">
-  <li class="active" id="simple1Tab">
-  	
-	<% @user.posts.each do |post| %>
-			<header>
-			<h3><%= link_to post.title, post %> <small>via <%= post.user_id %></small></h3>
+	<ul class="tabs-content">
+	  <li class="active" id="simple1Tab">
+	  	<article>
+		<% @user.posts.each do |post| %>
+				<header>
+				<h3><%= link_to post.title, post %> </h3>
+				</header>
+
+				<div class="content left six columns">
+					<%= image_tag post.thumbnail_url %>
+
+				</div>
+
+			    <section class="panel six columns right">
+			        Content info.
+			    </section>
+			    <%= link_to "Add to favourites", favourites_path(post_id: post.id),  {:method => :post, :class => "button small right"} if user_signed_in? %>
+			    <hr>
+		</article>
+		<% end %>
+		
+	  </li>
+	  <li id="simple2Tab">
+	  	<% @user.favourites.each do |fav| %>
+	  	<article>
+	  		<header>
+				<h3><%= link_to fav.post.title, fav.post %> <small>via <%= fav.post.user_id %></small></h3>
 			</header>
 
-			<div class="content left six columns">					
-				<%= link_to post.title, post.link %>
+	  		<div class="content left six columns">
+			<%= link_to image_tag(fav.post.thumbnail_url), fav.post, { :class => "th" } %>
 			</div>
-
-		    <section class="panel six columns right">
-		        Content info.
-		    </section>
-		    <hr>
-	<% end %>
-	
-  </li>
-  <li id="simple2Tab">
-  	Favorites in here
-
-
-
-  </li>
-</ul>
+			
+			<section class="panel six columns right">
+			        Content info.
+			</section>
+			<br />
+		</article>
+			<hr>
+		<% end %>
+	  </li>
+	</ul>
 
 
 

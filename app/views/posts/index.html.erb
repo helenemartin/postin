@@ -3,7 +3,7 @@
   <% @posts.each do |post| %>
     <div class="row">
       <div class="12 columns">
-        <h3><%= link_to post.title, post %> <small>via <%= link_to post.user.username, profile_path(post.user) %></small></h3>
+        <h3><%= link_to post.title, post %> <small>via <%= link_to post.user.name, profile_path(post.user) %></small></h3>
       </div>
     </div>
 
@@ -17,7 +17,7 @@
        <%= link_to post.title, post.link %>
       </div>
 
-      <%= link_to "Add to favorites", favourites_path(post_id: post.id), {:method => :post } if user_signed_in? %>
+      <%= link_to "Add to favorites", favourites_path(post_id: post.id),  {:method => :post, :class => "button small right"} if user_signed_in? %>
       
 
     </div>

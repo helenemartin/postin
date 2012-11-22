@@ -14,7 +14,11 @@ Postin::Application.routes.draw do
     end
   end
 
-  resources :favourites, :only => [:index, :create, :destroy]
+  resources :favourites, :only => [:index, :create, :destroy] do
+    member do
+      get 'posts'
+    end
+  end
 
   resource :account, only: [:edit, :update]
   resources :avatars
