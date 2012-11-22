@@ -1,6 +1,6 @@
 class Post < ActiveRecord::Base
   attr_accessible :author, :domain, :embed_code, :link, :media_provider, :media_type,
-   :meta_tags, :thumbnail_url, :user_id, :profile_attributes, :url, :title
+   :meta_tags, :thumbnail_url, :user_id, :profile_attributes, :url, :title, :description
 
 belongs_to :user
 has_many :favourites
@@ -32,6 +32,7 @@ def get_embedly
 	self.embed_code = obj[0].html
 	self.media_provider = obj[0].provider_name
 	self.media_type = obj[0].rich
+	self.description = obj[0].description
 	# self.meta_tags = obj[0].title
 	# self.description = obj[0].description - requires a migration
 

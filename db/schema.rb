@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121121002654) do
+ActiveRecord::Schema.define(:version => 20121122015655) do
 
   create_table "comments", :force => true do |t|
     t.string   "title",            :limit => 50, :default => ""
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(:version => 20121121002654) do
     t.datetime "updated_at",     :null => false
     t.string   "url"
     t.string   "title"
+    t.text     "description"
   end
 
   create_table "profiles", :force => true do |t|
@@ -102,6 +103,7 @@ ActiveRecord::Schema.define(:version => 20121121002654) do
     t.string   "name"
     t.text     "bio"
     t.string   "facebook_uid"
+    t.string   "showreel"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
