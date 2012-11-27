@@ -11,8 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-
-ActiveRecord::Schema.define(:version => 20121121002654) do
+ActiveRecord::Schema.define(:version => 20121122015655) do
 
   create_table "comments", :force => true do |t|
     t.string   "title",            :limit => 50, :default => ""
@@ -27,14 +26,6 @@ ActiveRecord::Schema.define(:version => 20121121002654) do
   add_index "comments", ["commentable_id"], :name => "index_comments_on_commentable_id"
   add_index "comments", ["commentable_type"], :name => "index_comments_on_commentable_type"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
-
-
-  create_table "favorites", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "post_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
 
   create_table "favourites", :force => true do |t|
     t.integer  "user_id"
@@ -66,6 +57,7 @@ ActiveRecord::Schema.define(:version => 20121121002654) do
     t.datetime "updated_at",     :null => false
     t.string   "url"
     t.string   "title"
+    t.text     "description"
   end
 
   create_table "profiles", :force => true do |t|
@@ -73,7 +65,6 @@ ActiveRecord::Schema.define(:version => 20121121002654) do
     t.datetime "updated_at",          :null => false
     t.integer  "user_id"
     t.string   "username"
-    t.binary   "avatar"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
@@ -100,10 +91,10 @@ ActiveRecord::Schema.define(:version => 20121121002654) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.string   "username"
     t.string   "name"
     t.text     "bio"
     t.string   "facebook_uid"
+    t.string   "showreel"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

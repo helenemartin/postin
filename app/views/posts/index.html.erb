@@ -1,3 +1,4 @@
+<div class="row">
 <h1>Recent posts</h1>
 
   <% @posts.each do |post| %>
@@ -10,21 +11,28 @@
     <div class="row">
 
       <div class="panel six columns push-six ">
-        Content info.
+        <%= post.description %>
       </div>
 
-      <div class="content six columns pull-six">
+    <!--   <div class="content six columns pull-six">
        <%= link_to post.title, post.link %>
+      </div> -->
+
+      <div class=" six columns pull-six">
+       <%= link_to image_tag(post.thumbnail_url), post %>
       </div>
 
-      <%= link_to "Add to favorites", favourites_path(post_id: post.id),  {:method => :post, :class => "button small right"} if user_signed_in? %>
+
+      <%= link_to "Favorite", favourites_path(post_id: post.id),  {:method => :post, :class => "radius button small secondary right"} if user_signed_in? %>
       
 
     </div>
+    <hr>
   
   <% end %>
-  <hr>
+  
 
     <%= paginate @posts %>
 
-    <hr>
+  <hr>
+</div>
